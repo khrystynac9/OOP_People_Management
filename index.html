@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+</head>
+<body class = "myBody">
+    <!-- <p class = "test">Please fill the form</p> -->
+    <form>
+        <fieldset>
+            <legend>Please fill the form</legend>
+            <div class="form-group row">
+                <label for="name-text-input" class="col-2 col-form-label">Name</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" title="John" id="name-text-input">
+                </div>
+
+                <label for="birthDate-date-input" class="col-2 col-form-label">Birth date</label>
+                <div class="col-10">
+                    <input  class="form-control" type="date" title="2018-01-22" id="birthDate-date-input">
+                </div>
+
+                <label for="address-text-input" class="col-2 col-form-label">Address</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" title="Lviv, Zelena, 32a/12" id="address-text-input" 
+                    pattern="^[A-Z]{1}[a-z]+[,]\s[A-Z]{1}[a-z]+[,]\s[0-9]+[a-z]?([\/]{1}[0-9]+)?$">
+                </div>
+
+                <label for="phone-tel-input" class="col-2 col-form-label">Telephone</label>
+                <div class="col-10">
+                    <input class="form-control" type="tel" title="55-55-55" id="phone-tel-input">
+                </div>
+
+                <label for="userEmail-email-input" class="col-2 col-form-label">Email</label>
+                <div class="col-10">
+                    <input class="form-control" type="email" title="john@example.com" id="userEmail-email-input">
+                </div>
+
+                <label for="gender-select-input" class="col-2 col-form-label">Gender</label>
+                <div class="col-10">
+                    <select class="form-control" id="gender-select-input">
+                        <option selected>Choose...</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                </select>
+                </div>
+                <button type="button" class="btn btn-outline-primary btn-sm btn-block myButton">Save</button>
+            </div>
+        </fieldset>
+    </form>
+    <table class="table table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Birth date</th>
+            <th>Address</th>
+            <th>Telephone</th>
+            <th>Email</th>
+            <th>Gender</th>
+        </tr>
+    </table>
+    
+
+    <script type = "text/javascript" src = "index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</body>
+</html>
