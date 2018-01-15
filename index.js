@@ -1,5 +1,6 @@
 var $button, $nameValue, $birthDateValue, $addressValue, $phoneValue, $emailValue, $genderValue, $tableRow;
 var userDataArray = [];
+var userDataArrayIndex;
 
 class SuperUser {
     constructor(isDataVisible) {
@@ -41,8 +42,10 @@ function buttonAction() {
     gettingEmail();
     gettingGender();
     usersArray();
-    tableCreating();
-    rowClick();
+    if (userDataArrayIndex) {
+        tableCreating();
+        rowClick();
+    }
 }
 
 function gettingName() {
@@ -50,7 +53,7 @@ function gettingName() {
     var nameRegex = /^[A-Z]{1}[a-z]*$/;
     if(!nameRegex.test($nameValue)) {
         alert("You entered incorrect name");
-        return false;
+        return $nameValue = false;
     }
 }
 
@@ -58,7 +61,7 @@ function gettingBirthDate() {
     $birthDateValue =  document.getElementById("birthDate-date-input").value;
     if(!$birthDateValue) {
         alert("you forgot to enter the date");
-        return false;
+        return $birthDateValue = false;
     }
 }
 
@@ -67,7 +70,7 @@ function gettingAddress() {
     var addressRegex = /^[A-Z]{1}[a-z]+[,]\s[A-Z]{1}[a-z]+[,]\s[0-9]+[a-z]?([\/]{1}[0-9]+)?$/;
     if(!addressRegex.test($addressValue)) {
         alert("You entered incorrect address");
-        return false;
+        return $addressValue = false;
     }
 }
 
@@ -76,7 +79,7 @@ function gettingPhone() {
     var phoneRegex = /^[0-9]{2}-[0-9]{2}-[0-9]{2}$/;
     if(!phoneRegex.test($phoneValue)) {
         alert("You entered incorrect phone");
-        return false;
+        return $phoneValue = false;
     }
 }
 
@@ -85,7 +88,7 @@ function gettingEmail() {
     var emailRegex = /^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@{[a-zA-Z0-9_\-\.]+0\.([a-zA-Z]{2,5}){1,25})+)*$/;
     if(!emailRegex.test($emailValue)) {
         alert("You entered incorrect email");
-        return false;
+        return $emailValue = false;
     }
 }
 
@@ -94,16 +97,23 @@ function gettingGender() {
     $genderValue = $a.options[$a.selectedIndex].value;
     if ($genderValue == "Choose...") {
         alert("You forgot to select the gender");
-        return false;
+        return $genderValue = false;
     }
 }
 
 function usersArray() {
-    var user = new User($nameValue, $birthDateValue, $addressValue, $phoneValue, $emailValue, $genderValue);
-    userDataArray.push(user);
+    if($nameValue && $birthDateValue && $addressValue && $phoneValue && $emailValue && $genderValue) {
+        var user = new User($nameValue, $birthDateValue, $addressValue, $phoneValue, $emailValue, $genderValue);
+        userDataArray.push(user);
+        userDataArrayIndex = true;
+    } else {
+        alert("You entered incorect data, try one more time");
+        return userDataArrayIndex = false;
+    }
 }
 
 function tableCreating() {
+    
     var table = document.getElementsByClassName("table");
     var row = document.createElement("tr");
     var index = userDataArray.length - 1;
